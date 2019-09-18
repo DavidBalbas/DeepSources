@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 
+"""
+This script loads the training images, compiles a CNN architecture and trains it.
+
+Version: September 18, 2019
+@author David Balbas
+"""
+
 import numpy as np
 import tensorflow as tf
 from tensorflow.python.keras import layers

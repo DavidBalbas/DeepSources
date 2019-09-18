@@ -4,6 +4,8 @@
 This script loads the training images, compiles a CNN architecture and trains it.
 It is intended for images both with and without foregrounds.
 
+NOTE: ONLY THE CNN IN THE 5MIN FOLDER WAS USED FOR THE RESULTS IN THE DOCUMENT.
+
 Version: August 18, 2019
 @author David Balbas
 """
@@ -35,7 +37,7 @@ np.random.shuffle(indices)
 dataindices=indices[:lenj]
 valindices=indices[lenj:]
 
-#TODO: CHANGE THE PATHS
+#PATHS HAVE NOT BEEN CHANGED. IT WORKS IN LOCAL.
 
 for j in dataindices:
     i=j//3071

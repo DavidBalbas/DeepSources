@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# -*- coding: utf-8 -*-
 
 """
 This script and method library evaluates the performance of the CNN and the 
@@ -169,27 +168,27 @@ def total_comparator(val_full_weak, val_full_strong, val_predictions_weak, val_p
     
     fluxes2=fluxes
         
-#    for thr_ind in range(len(threshold2)):
-#        thr=threshold2[thr_ind]
-#        above_detections=np.zeros((num))
-#        below_detections=np.zeros((num))
-#        undetected_above=np.zeros((num))
-#        undetected_below=np.zeros((num))
-#        real_objects=np.zeros((num))
-#        spur_objects=np.zeros((num))
-#        for ind in range(num):
-#            flux=fluxes2[ind]
-#            for i in range(len(val_predictions_strong)):
-#                ad,bd,ua,ub,ro,so=img_accuracy_cnn_2(thr,val_predictions_strong[i,:,:,0],val_pssmth_strong[i], val_full_strong[i,:,:,0],flux,val_label_strong[i])
-#                above_detections[ind]=above_detections[ind]+ad
-#                below_detections[ind]=below_detections[ind]+bd
-#                undetected_below[ind]=undetected_below[ind]+ub
-#                undetected_above[ind]=undetected_above[ind]+ua
-#                real_objects[ind]=real_objects[ind]+ro
-#                spur_objects[ind]=spur_objects[ind]+so
-#                
-#        strong_completeness[thr_ind,:]=above_detections/(above_detections+undetected_above)
-#        strong_spures[thr_ind]=spur_objects[0]/(spur_objects[0]+real_objects[0])
+    for thr_ind in range(len(threshold2)):
+        thr=threshold2[thr_ind]
+        above_detections=np.zeros((num))
+        below_detections=np.zeros((num))
+        undetected_above=np.zeros((num))
+        undetected_below=np.zeros((num))
+        real_objects=np.zeros((num))
+        spur_objects=np.zeros((num))
+        for ind in range(num):
+            flux=fluxes2[ind]
+            for i in range(len(val_predictions_strong)):
+                ad,bd,ua,ub,ro,so=img_accuracy_cnn_2(thr,val_predictions_strong[i,:,:,0],val_pssmth_strong[i], val_full_strong[i,:,:,0],flux,val_label_strong[i])
+                above_detections[ind]=above_detections[ind]+ad
+                below_detections[ind]=below_detections[ind]+bd
+                undetected_below[ind]=undetected_below[ind]+ub
+                undetected_above[ind]=undetected_above[ind]+ua
+                real_objects[ind]=real_objects[ind]+ro
+                spur_objects[ind]=spur_objects[ind]+so
+                
+        strong_completeness[thr_ind,:]=above_detections/(above_detections+undetected_above)
+        strong_spures[thr_ind]=spur_objects[0]/(spur_objects[0]+real_objects[0])
     
     #Comparison finished. Plot the basic results.
     plt.figure()
@@ -198,15 +197,15 @@ def total_comparator(val_full_weak, val_full_strong, val_predictions_weak, val_p
         thr=threshold[thr_ind]
         plt.plot(fluxes*0.001920, weak_completeness[thr_ind,:], label='75-CNN '+str(thr), color=colours[thr_ind], linestyle='solid')
         print("Spureous ratio, weak CNN at threshold "+str(thr)+": "+str(weak_spures[thr_ind]))
-#    for thr_ind in range(len(threshold2)):
-#        thr=threshold2[thr_ind]
-#        plt.plot(fluxes*0.001920, strong_completeness[thr_ind,:], label='75-CNN '+str(thr), color=colours[thr_ind])
-#        print("Spureous ratio, strong CNN at threshold "+str(thr)+": "+str(strong_spures[thr_ind]))
+    for thr_ind in range(len(threshold2)):
+        thr=threshold2[thr_ind]
+        plt.plot(fluxes*0.001920, strong_completeness[thr_ind,:], label='75-CNN '+str(thr), color=colours[thr_ind])
+        print("Spureous ratio, strong CNN at threshold "+str(thr)+": "+str(strong_spures[thr_ind]))
     plt.xlabel('S / Jy')
     plt.ylabel('Completeness')
     plt.legend()
     plt.savefig('stats75weak-new.svg',format='svg')
-#    plt.savefig('statsstrong75.png',format='png', dpi=300)
+    plt.savefig('statsstrong75.png',format='png', dpi=300)
     plt.show()
     plt.close()
     return (above_detections,below_detections,real_objects,spur_objects,fluxes, weak_completeness, strong_completeness, weak_spures, strong_spures)

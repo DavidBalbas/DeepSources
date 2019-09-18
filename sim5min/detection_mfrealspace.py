@@ -2,7 +2,7 @@
 
 """
 This script and method library evaluates the performance of the CNN and the 
-MF and compares them, for point sources in the sphere (spherical MF).
+MF and compares them, for point sources in the sphere (real space MF).
 
 Version: August 29, 2019
 
@@ -283,7 +283,7 @@ def total_comparator(val_mfiltered, val_predictions, val_ps, val_full, val_label
    
 #obtains a full comparison of the matched filter and the CNN
     
-#val_mfiltered,val_predictions,val_pssmth,val_full,val_label,val_realmfiltered=image_loading(3072)
+val_mfiltered,val_predictions,val_pssmth,val_full,val_label,val_realmfiltered=image_loading(3072)
 
 results2=total_comparator(val_realmfiltered,val_predictions,val_pssmth,val_full,val_label)
 

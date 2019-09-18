@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-Created on Thu Jul  4 12:59:23 2019
+Performs detections in the sphere of the Planck real data using two different groups of pixels, ordered by foregrounds, with two different models. For example, galactic and extragalactic CNNs.
 
-@author: david
+@version: 17 september 2019
+@author: David Balbas Gutierrez
 """
 
 import numpy as np
@@ -65,13 +66,7 @@ def draw_globalmap_cnn(threshold, set_predictions, set_locations):
     
 def img_acc_cnn_locations(threshold, img, locationmap):
     """
-    Returns:
-        number of objects in the label
-        number of true detection
-        number of false detection
-    Input:
-        img - image to process in greyscale before thresholding has been applied
-        labelimage - image with the labels, 0 or 255 scale.
+    Returns a list with the the location of the point sources in the image
     """
     objectsimg,segmap_img=sep.extract(img, threshold, segmentation_map=True, filter_kernel=None)
     xcpeak=objectsimg['xcpeak']

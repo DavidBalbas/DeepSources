@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Sep  5 19:48:31 2019
+This module divides the sky in two different areas for the detection with two separate CNN models. Completenes curves are not shown, only detection maps.
 
-@author: david
+@version: 17 September 2019
+@author: David Balbas
 """
 
 import numpy as np

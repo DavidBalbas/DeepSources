@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 """
-Created on Wed Jul  3 14:19:34 2019
+Generates the images of the training set
 
+@version: 17 August 2019
 @author: david
 """
 
@@ -153,9 +154,9 @@ def generate_training_set():
     
 #    
 
-#    generate_sim_2048(5, 85000, path+'/fullmaps/sim_1')
-#    generate_sim_2048(5, 105000, path+'/fullmaps/sim_2')
-#    generate_sim_2048(5, 95000, path+'/fullmaps/sim_3')
+    generate_sim_2048(5, 85000, path+'/fullmaps/sim_1')
+    generate_sim_2048(5, 105000, path+'/fullmaps/sim_2')
+    generate_sim_2048(5, 95000, path+'/fullmaps/sim_3')
     
     for i in [3]:
         mapp=hp.fitsfunc.read_map(path+'/fullmaps/'+'sim_'+str(i)+'.fits', nest=False)

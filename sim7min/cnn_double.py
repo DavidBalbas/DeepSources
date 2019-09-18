@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed Sep  4 14:38:49 2019
-
-@author: david
+Script to train a CNN using realistic simulations. Two different CNNs are trained, with and without foregrounds.
 """
 
 import numpy as np
